@@ -5,7 +5,16 @@
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300i,700i&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel = "stylesheet"
+        type = "text/css"
+        href = "styles/nav.css" />
+    <link rel = "stylesheet"
+        type = "text/css"
+        href = "styles/new-tweet.css" />
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -21,12 +30,21 @@
 
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png" width="80px" height="80px">
+    <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
     </nav>
-
+     
     <!-- Page-specific (main) content here -->
-    <main class="container">
+    <main class="tweet-container">
+        <section class="new-tweet">
+            <h2>Compose Tweet</h2>
+            <form action="/tweets/" method="POST">
+              <textarea name="text" placeholder="What are you humming about?"></textarea>
+              <!-- <input type="submit" value="Tweet"> -->
+              <button type="submit" class="btn btn-primary">Tweet</button>
+              <span class="counter">140</span>
+            </form>
+          </section>
     </main>
 
   </body>

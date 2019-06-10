@@ -1,0 +1,40 @@
+
+/* new compose box */
+
+section.new-tweet {
+    border-radius: 10px;
+    border: 1.5px black solid;
+    width: 90%;
+    background-color:#fabeb6;
+    margin: 0 auto 0 auto;
+    padding: 10px;
+  }
+  
+  /* compose tweet text and underline */
+  section.new-tweet h2{
+    text-align: left;
+    margin-top: 20px;
+    border-bottom: 1px solid black;
+  }
+  
+  /* form box  */
+  section.new-tweet form{
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  /* text area box */
+  section.new-tweet textarea {
+    border-radius: 7px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  /* counter right */
+  .counter {
+    font-size: 20px;
+    font-weight: italic;
+    float: right;
+    color: #c97162
+  }
+  
