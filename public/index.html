@@ -10,11 +10,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel = "stylesheet"
-        type = "text/css"
-        href = "styles/nav.css" />
+      type = "text/css"
+      href = "styles/nav.css" />
     <link rel = "stylesheet"
-        type = "text/css"
-        href = "styles/new-tweet.css" />
+      type = "text/css"
+      href = "styles/new-tweet.css" />
+    <link rel = "stylesheet"
+      type = "text/css"
+      href = "styles/tweet-container.css" />
+
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -47,14 +51,25 @@
               <span class="counter">140</span>
             </form>
           </section>
-          <section class="new-tweet">
-            <h2>Compose Tweet</h2>
-            <form action="/tweets/" method="POST">
-              <textarea name="text" placeholder="What is malya thingking?"></textarea>
-              <!-- <input type="submit" value="Tweet"> -->
-              <button type="submit" class="btn btn-primary">Tweet</button>
-              <span class="counter">140</span>
-            </form>
+          <section class="tweet-containerNew">
+            <article class="tweetByUser">
+              <header>
+                <img class = 'avatarImg' src="https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png"></img>
+                <h1 class = 'avatarTitle'>Vishnu</h1>
+                <p class = 'avatarName'>@vishnuchen</p>
+              </header>
+              <div class = 'newTweetBody'>
+                <div class = 'newTweetBodyText'>Testing New Thing</div>
+              </div>
+              <footer>
+                <p class = 'timeStamp'>2 minutes ago</p>
+                <div class= "icons">
+                  <i class="fab fa-bitcoin"></i>
+                  <i class="fas fa-bullhorn"></i>
+                  <i class="fas fa-pizza-slice"></i>
+                </div>
+              </footer>
+            </article>
           </section>
         
     </main>
