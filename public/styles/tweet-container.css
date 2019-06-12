@@ -12,16 +12,11 @@ section.tweet-containerNew {
   border-radius: 10px;
   border: 1.5px solid rgba(200,200,200,1.0);
   width: 90%;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 40px auto;
 }
 
 
-.tweet-containerNew header {
-  overflow: auto;
-  border-radius: 10px 10px 0 0;
-  background-color:#fabeb6;
 
-}
 img.avatarImg {
   float: left;
   border-radius: 10px;
@@ -51,16 +46,16 @@ div.newTweetBodyText{
 }
 
 footer {
-  border-top: 2px solid black;
+  border-top: 2px solid rgba(200,200,200,1.0);
 }
 
 div.icons {
   float: right;
-  color: #000000;
+  color: rgba(200,200,200,1.0);
   display: flex;
   justify-content: space-evenly;
   width:100px;
-  padding: 10px 0 10px 0;
+  margin: 10px 0 10px 0;
 }
 
 p.timeStamp {
@@ -74,9 +69,27 @@ p.timeStamp {
   opacity: 1.0;
 }
 
+.tweet-containerNew:hover footer {
+  border-top: 2px solid black;
+}
+
 .tweet-containerNew:hover {
     border: 1.5px solid rgba(0,0,0,1.0);;
     border-radius: 10px;
 }
+
+i.fab.fa-bitcoin:hover {
+  color: #E78213;
+
+}
+
+i.fas.fa-bullhorn:hover {
+  color: #E78213;
+}
+
+i.fas.fa-pizza-slice:hover {
+  color: #E78213;
+}
+
 
 
