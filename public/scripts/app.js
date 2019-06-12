@@ -111,5 +111,21 @@ $( document ).ready( function () {
       });
   }
 
+  $("button.btn.btn-primary").on('click', function(event) {
+    event.preventDefault()
+    console.log($("textarea").serialize());
+    $.ajax({ 
+      type: 'POST',
+      url: "/tweets",
+      data: $("textarea").serialize()
+    })
+  });
+
+
+
+
+
+
   renderTweets(data);
 });
+
