@@ -6,6 +6,12 @@
 
 $( document ).ready( function () {
 
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   function createTweetElement(tweet) {
 
     let tweetImage = tweet.user.avatars.small;
@@ -21,15 +27,15 @@ $( document ).ready( function () {
     <section class="tweet-containerNew">
       <article class="tweetByUser">
         <header>
-          <img class = 'avatarImg' src="${tweetImage}"></img>
-          <h1 class = 'avatarTitle'>${username}</h1>
-          <p class = 'avatarName'>${userHandle}</p>
+          <img class = 'avatarImg' src="${escape(tweetImage)}"></img>
+          <h1 class = 'avatarTitle'>${escape(username)}</h1>
+          <p class = 'avatarName'>${escape(userHandle)}</p>
         </header>
         <div class = 'newTweetBody'>
-          <div class = 'newTweetBodyText'>${tweetBody}</div>
+          <div class = 'newTweetBodyText'>${escape(tweetBody)}</div>
         </div>
         <footer>
-          <p class = 'timeStamp'>${daysElapsed} days ago</p>
+          <p class = 'timeStamp'>${escape(daysElapsed)} days ago</p>
           <div class= "icons">
             <i class="fab fa-bitcoin"></i>
             <i class="fas fa-bullhorn"></i>
