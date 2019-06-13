@@ -1,4 +1,4 @@
-#nav-bar {
+#logotext {
     background-color: #22ace8;
     margin: 0;
     height: 120px;
@@ -20,4 +20,22 @@
     margin: 10px 0 10px 0;
     width: 100px;
     height: 100px;
+}
+
+#compose {
+  font-size: 20px;
+}
+
+#buttoncompose {
+float: right;
+}
+
+#compose:hover {
+  background-color: #ECA220;
+    color: #000;
+}
+
+#tweetbutton:hover {
+  background-color: #ECA220;
+    color: #000;
 }

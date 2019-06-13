@@ -70,7 +70,13 @@ $( document ).ready( function () {
     })
   };
 
-  loadTweets()
+  //code to toggle form
+  $('#compose').on('click', function (event) {
+    $('.new-tweet').slideToggle(100);
+    $('textarea').select();
+  })
+
+  loadTweets();
 
   function renderTweets(tweets) {
     // loops through tweets
