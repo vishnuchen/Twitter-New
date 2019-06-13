@@ -20,7 +20,7 @@ $( document ).ready( function () {
     let tweetBody = tweet.content.text;
     let tweetCreateDate = tweet.created_at;
     let currentTime = Math.floor(Date.now());
-    let daysElapsed = Math.floor((currentTime - tweetCreateDate) / (1000*60*60*24));
+    let daysElapsed = Math.floor((currentTime - tweetCreateDate) / (1000*60)); //(1000*60*60*24)
 
     let htmlAppend = 
     `
@@ -35,7 +35,7 @@ $( document ).ready( function () {
           <div class = 'newTweetBodyText'>${escape(tweetBody)}</div>
         </div>
         <footer>
-          <p class = 'timeStamp'>${escape(daysElapsed)} days ago</p>
+          <p class = 'timeStamp'>${escape(daysElapsed)} minutes ago</p>
           <div class= "icons">
             <i class="fab fa-bitcoin"></i>
             <i class="fas fa-bullhorn"></i>
@@ -48,35 +48,30 @@ $( document ).ready( function () {
     return htmlAppend;
   }
 
-  function loadTweets () {
+  function loadTweets (callback) {
     $.ajax({
         method: 'GET',
         url: '/tweets',
         dataType: 'JSON',
-        success: function(data) {
-            renderTweets(data);
-        }
-    })
-  };
+        success: callback
+    });
+  }
 
   function renderLatestTweet () {
-    $.ajax({
-        method: 'GET',
-        url: '/tweets',
-        dataType: 'JSON',
-        success: function(data) {
-          $('.all-new-tweets').prepend(createTweetElement(data[data.length - 1]));
-        }
-    })
+    loadTweets(function(data) {
+      renderTweets([data[data.length - 1]]);
+    });
   };
 
   //code to toggle form
-  $('#compose').on('click', function (event) {
+  $('#compose').on('click', function (_) {
     $('.new-tweet').slideToggle(100);
     $('textarea').select();
   })
 
-  loadTweets();
+  loadTweets(function(data) {
+    renderTweets(data);
+  });
 
   function renderTweets(tweets) {
     // loops through tweets
@@ -88,25 +83,40 @@ $( document ).ready( function () {
     });
   }
 
-  $("form").on('submit', function(event) {
-    //too long
+  $("#tweetform").on('submit', function(event) {
+    event.preventDefault();
+    // //too long
+    // if ($('textarea').val().length > 140) {
+    //   alert ("error too long");
+    // }
+    //   //empty   
+    // else if ($('textarea').val().length === 0) {
+    //     alert ("tweet is empty");
+    // }
+
     if ($('textarea').val().length > 140) {
-      alert ("error too long");
+      // alert ("error too long");
+      let tweetErrorLong = 'Your bytes longerthan 140 Sats';
+      $('#errormessage').text(tweetErrorLong);
+      $('#errormessage').slideDown();
     }
       //empty   
     else if ($('textarea').val().length === 0) {
-        alert ("tweet is empty");
+        // alert ("tweet is empty");
+        let tweetErrorZero = 'You have zero byte of Sats';
+        $('#errormessage').text(tweetErrorZero);
+        $('#errormessage').slideDown();
     }
 
     else {
       //else submit the form
-      event.preventDefault();
+      
       console.log($("textarea").serialize());
       $.ajax({ 
         type: 'POST',
         url: "/tweets",
         data: $('textarea').serialize(),
-        error: function(err, status, message) {
+        error: function(_err, _status, message) {
           console.log('err: ', message);
         },
         success: function() {
@@ -116,7 +126,7 @@ $( document ).ready( function () {
     }
   });
 
-// Loads tweet function which executes a GET request to load tweets
 
+// Loads tweet function which executes a GET request to load tweets
 });
 

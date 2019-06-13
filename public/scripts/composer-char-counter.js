@@ -9,6 +9,7 @@ $(document).ready(function() {
       $('.counter').addClass('red');
     } else {
       $('.counter').removeClass('red');
+      $('#errormessage').text('');
     }
   })    
 });

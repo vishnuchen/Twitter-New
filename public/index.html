@@ -8,8 +8,6 @@
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
-
-
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
     <!-- character counter -->
@@ -54,35 +52,17 @@
         <section class="new-tweet">
             <h2>Compose Tweet</h2>
             <!-- <form action="/tweets" method="POST"> -->
-            <form id = 'tweet-form'>
+            <form id = 'tweetform'>
               <textarea name="text" placeholder="Satoshi Thoughts"></textarea>
               <!-- <input type="submit" value="Tweet"> -->
               <button id = 'tweetbutton' type="submit" class="btn btn-primary">Tweet</button>
               <span class="counter">140</span>
+              <p id='errormessage'></p>
             </form>
         </section>
 
       <div class = "all-new-tweets">
-        <!-- <section class="tweet-containerNew">
-            <article class="tweetByUser">
-              <header>
-                <img class = 'avatarImg' src=""></img>
-                <h1 class = 'avatarTitle'></h1>
-                <p class = 'avatarName'></p>
-              </header>
-              <div class = 'newTweetBody'>
-                <div class = 'newTweetBodyText'></div>
-              </div>
-              <footer>
-                <p class = 'timeStamp'></p>
-                <div class= "icons">
-                  <i class="fab fa-bitcoin"></i>
-                  <i class="fas fa-bullhorn"></i>
-                  <i class="fas fa-pizza-slice"></i>
-                </div>
-              </footer>
-            </article>           
-          </section> -->
+
       </div>
         
     </main>

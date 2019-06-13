@@ -41,4 +41,12 @@ section.new-tweet {
     color: #03ad3c
   }
 
+  #errormessage {
+    font-size: 15px;
+    font-weight: italic;
+    text-align: right;
+    display: none;
+    color: #ff0000;
+
+  }
   
