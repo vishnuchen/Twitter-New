@@ -4,65 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-  //easier way to structure html dom in jquery. use below syntax
-    // var html = `
-    // <article class="tweet">
-    //   <h1 class="username">${tweet.user.name}
-    // `
-
-
-// Fake data taken from tweets.json
-
-
-
 $( document ).ready( function () {
-
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": {
-          "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-          "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-          "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-        },
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": {
-          "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-          "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-          "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-        },
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    },
-    {
-      "user": {
-        "name": "Johann von Goethe",
-        "avatars": {
-          "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-          "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-          "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-        },
-        "handle": "@johann49"
-      },
-      "content": {
-        "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-      },
-      "created_at": 1461113796368
-    }
-  ];
 
   function createTweetElement(tweet) {
 
@@ -94,38 +36,75 @@ $( document ).ready( function () {
             <i class="fas fa-pizza-slice"></i>
           </div>
         </footer>
-      </article>   
+      </article>
     </section>
     `;
     return htmlAppend;
   }
 
+  function loadTweets () {
+    $.ajax({
+        method: 'GET',
+        url: '/tweets',
+        dataType: 'JSON',
+        success: function(data) {
+            renderTweets(data);
+        }
+    })
+  };
+
+  function renderLatestTweet () {
+    $.ajax({
+        method: 'GET',
+        url: '/tweets',
+        dataType: 'JSON',
+        success: function(data) {
+          $('.all-new-tweets').prepend(createTweetElement(data[data.length - 1]));
+        }
+    })
+  };
+
+  loadTweets()
+
   function renderTweets(tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container      
-      tweets.forEach(function(item) {
-          var $tweet = createTweetElement(item);
-          console.log(item);
-          $('.all-new-tweets').append($tweet);
-      });
+    tweets.forEach(function(item) {
+      var $tweet = createTweetElement(item);
+      $('.all-new-tweets').prepend($tweet);
+    });
   }
 
-  $("button.btn.btn-primary").on('click', function(event) {
-    event.preventDefault()
-    console.log($("textarea").serialize());
-    $.ajax({ 
-      type: 'POST',
-      url: "/tweets",
-      data: $("textarea").serialize()
-    })
+  $("form").on('submit', function(event) {
+    //too long
+    if ($('textarea').val().length > 140) {
+      alert ("error too long");
+    }
+      //empty   
+    else if ($('textarea').val().length === 0) {
+        alert ("tweet is empty");
+    }
+
+    else {
+      //else submit the form
+      event.preventDefault();
+      console.log($("textarea").serialize());
+      $.ajax({ 
+        type: 'POST',
+        url: "/tweets",
+        data: $('textarea').serialize(),
+        error: function(err, status, message) {
+          console.log('err: ', message);
+        },
+        success: function() {
+          renderLatestTweet();
+        }
+      })
+    }
   });
 
+// Loads tweet function which executes a GET request to load tweets
 
-
-
-
-
-  renderTweets(data);
 });
 
