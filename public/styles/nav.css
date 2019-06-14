@@ -1,11 +1,22 @@
+*{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+
 #logotext {
-    background-color: #22ace8;
+
     margin: 0;
     height: 120px;
     width: 100%;
     padding: 0 2em 0 2em;  
+    display: inline;
     display: flex;
     align-items: center;        
+}
+
+#nav-bar {
+  background-color: #22ace8;
+  display: flex;
 }
 
 #nav-bar .header {
@@ -24,6 +35,8 @@
 
 #compose {
   font-size: 20px;
+  margin-top: 30px;
+  margin-right: 60px;
 }
 
 #tweetbutton {
@@ -32,6 +45,7 @@
 
 #buttoncompose {
 float: right;
+display: inline;
 }
 
 #compose:hover {

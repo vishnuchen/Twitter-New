@@ -1,4 +1,6 @@
-
+*{
+  font-family: 'Roboto Condensed', sans-serif;
+}
 /* new compose box */
 
 section.new-tweet {

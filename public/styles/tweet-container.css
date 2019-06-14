@@ -16,7 +16,9 @@ section.tweet-containerNew {
 }
 
 
-
+*{
+  font-family: 'Roboto Condensed', sans-serif;
+}
 img.avatarImg {
   float: left;
   border-radius: 10px;

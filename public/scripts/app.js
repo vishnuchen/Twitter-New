@@ -85,15 +85,6 @@ $( document ).ready( function () {
 
   $("#tweetform").on('submit', function(event) {
     event.preventDefault();
-    // //too long
-    // if ($('textarea').val().length > 140) {
-    //   alert ("error too long");
-    // }
-    //   //empty   
-    // else if ($('textarea').val().length === 0) {
-    //     alert ("tweet is empty");
-    // }
-
     if ($('textarea').val().length > 140) {
       // alert ("error too long");
       let tweetErrorLong = 'Your bytes longerthan 140 Sats';
