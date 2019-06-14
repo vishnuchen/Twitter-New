@@ -16,7 +16,7 @@ html {
 
 main {
   width: 600px;
-  margin: 0 auto 0 auto;
+  margin: 40px auto 0 auto;
   padding: 100px 0 40px 0; 
   background: white;
 }
@@ -25,7 +25,7 @@ body {
   margin: 0;
   background-color: #dedbcf;
   font-family: 'Roboto Condensed', sans-serif;
-  background-image: url('cars.png');
+  background-image: url('car1.png');
 }
 
 .red {

@@ -1,6 +1,6 @@
-*{
+ /* *{
   font-family: 'Roboto Condensed', sans-serif;
-}
+} */
 
 
 #logotext {
@@ -21,9 +21,10 @@
 
 #nav-bar .header {
     font-size: 50px;
+    font-family: 'Arial';
     font-weight: italic;
     padding: 20px 0 0 10px;
-    color: #ECA220
+    color: #FFCA06
     /* #f21d61 */
 }
 
