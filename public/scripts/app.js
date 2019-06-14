@@ -20,7 +20,7 @@ $( document ).ready( function () {
     let tweetBody = tweet.content.text;
     let tweetCreateDate = tweet.created_at;
     let currentTime = Math.floor(Date.now());
-    let daysElapsed = Math.floor((currentTime - tweetCreateDate) / (1000*60)); //(1000*60*60*24)
+    let daysElapsed = Math.floor((currentTime - tweetCreateDate) / (1000*60*60)); //(1000*60*60*24)
 
     let htmlAppend = 
     `
@@ -35,7 +35,7 @@ $( document ).ready( function () {
           <div class = 'newTweetBodyText'>${escape(tweetBody)}</div>
         </div>
         <footer>
-          <p class = 'timeStamp'>${escape(daysElapsed)} minutes ago</p>
+          <p class = 'timeStamp'>${escape(daysElapsed)} Hours ago</p>
           <div class= "icons">
             <i class="fab fa-bitcoin"></i>
             <i class="fas fa-bullhorn"></i>
