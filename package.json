@@ -11,10 +11,10 @@
   "author": "Lighthouse Labs",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.2",
+    "body-parser": "^1.20.1",
     "chance": "^1.0.2",
-    "express": "^4.13.4",
-    "http-server": "^0.11.1",
+    "express": "^4.18.2",
+    "http-server": "^0.11.2",
     "md5": "^2.1.0",
     "mongodb": "^2.2.36"
   },
